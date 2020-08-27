@@ -1,0 +1,64 @@
+<!--
+    Olá! Na tarefa de hoje eu quero que vocês criem uma função que faça o seguinte:
+    Numa página com um botão "nome" e outro "sobrenome" ele envie o prompt ao clicar no botão, perguntando o nome ou sobrenome, de acordo com o botão, considerando que o nome não pode estar vazio e nem nulo (que é o caso de a pessoa cancelar). Depois a pessoa deverá confirmar o nome dela, e enquanto não o fizer, o nome deverá ser perguntado novamente e a confirmação também.
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarefa 12</title>
+</head>
+<body>
+    <button onclick="nome()">NOME</button>
+    <button onclick="sobrenome()">SOBRENOME</button>
+    <script>
+        function nome (nome, escolha){
+            var i = 0
+            while (i != 1){
+                var nome = prompt("Digite o seu nome:")
+                if (nome == "" || nome == null){
+                    alert("Nome inválido!")
+                } else{
+                    var escolha = prompt("O seu nome é mesmo "+nome+"?")
+                    switch (escolha) {
+                        case "sim": 
+                            alert("Bem vinde, "+nome+"!")
+                            i = 1
+                            break
+                        case "não": 
+                            alert("Tente novamente")
+                            break
+                        default: 
+                            prompt("Comando Inválido")
+                    } 
+                } 
+            }
+        }
+        function sobrenome (sobrenome, escolha){
+            var i = 0
+            while (i != 1){
+                var sobrenome = prompt("Digite o seu sobrenome:")
+                if (sobrenome == "" || sobrenome == null){
+                    alert("Sobrenome inválido!")
+
+                } else{
+                    var escolha = prompt("O seu sobrenome é mesmo "+sobrenome+"?")
+                    switch (escolha) {
+                        case "sim": 
+                            alert("Bem vinde!")
+                            i = 1
+                            break
+                        case "não": 
+                            alert("Tente novamente")
+                            break
+                        default: 
+                            prompt("Comando Inválido")
+                    } 
+                } 
+            }
+
+        }
+    </script>
+</body>
+</html>
