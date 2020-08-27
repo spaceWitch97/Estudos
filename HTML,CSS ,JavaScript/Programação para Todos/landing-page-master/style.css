@@ -62,11 +62,6 @@ body {
   }
 
   /*Cards*/
-
-  .container {
-    width: 900px;
-    margin: 60px;
-  }
   
   .cards {
     background: rgba(53, 50, 50, 0.719);
@@ -112,3 +107,56 @@ body {
   #footer p {
     color: white;
   }
+
+  /*Responsividade*/
+
+  @media (min-width: 300px){
+    .container{
+      width: 400px;
+    }
+
+    .kard{
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (min-width: 700px){
+    .container{
+      width: 600px;
+    }
+
+    .kard{
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 1000px){
+    .container{
+      width: 900px;
+    }
+
+    .kard{
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .typewriter {
+      animation: animated-text 4s steps(31, end);
+      animation-iteration-count: infinite;
+      display: inline-block;
+      white-space: nowrap; 
+      letter-spacing: 1px;
+      overflow: hidden;
+      position: relative;
+    }
+  }
+
+  /*animação*/
+
+  @keyframes animated-text{
+    from{
+      width: 0;
+    } to {
+      width: 100%;
+    }
+  }
+  
