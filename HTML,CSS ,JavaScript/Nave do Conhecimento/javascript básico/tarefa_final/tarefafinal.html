@@ -1,0 +1,361 @@
+<!--
+Olá! Na nossa tarefa final, vocês precisarão fazer uma página de padaria. 
+A página deverá ter ao menos 5 produtos, com seus respectivos botões de compra. Quando o botão de um produto for clicado, será enviada uma pergunta para saber quantos produtos daquele a pessoa irá comprar, uma pergunta para saber se o pagamento será em cartão ou em dinheiro - se for em cartão, a página perguntará se o pagamento é online ou presencial. Caso seja online, o número do cartão, a data de validade e o código de segurança serão pedidos (cartão máximo 16 caracteres, validade máximo 4 caracteres, código de segurança máximo 3 caracteres. Caso os três requisitos não sejam cumpridos, cartão inválido) - se o pagamento for presencial, a página irá perguntar se é débito ou crédito e retornará depois dizendo que a máquina de débito/crédito será enviada, de acordo com a resposta do usuário. Por fim, se o pagamento for em dinheiro, a página perguntará se é necessário troco - se a resposta for sim (ou true, pelo confirm), deverá perguntar para quantos reais seria o troco, sendo que se o valor for menor que o valor da compra um aviso será disparado. Após isso, a página deverá enviar um agradecimento.
+-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>TAREFA FINAL</title>
+</head>
+<body style="background-color: bisque; text-align: center;">
+    <header style="background-color: chocolate;">
+        <h1>BEM VINDE À PADARIA ESTRELA DO NORTE</h1>
+        <h3>A melhor padaria neste pedaço da galáxia!</h3>
+    </header>
+    <div>
+        <figure style="background-color: goldenrod;">
+            <img src="img/broa.jpg" width=80% alt="Foto de Broa de Fubá">
+            <figcaption>Broa de Fubá<br>R$0.50/Broa</figcaption>
+            <button onclick="broa()">COMPRE AQUI</button>
+        </figure>
+        <figure style="background-color: goldenrod;">
+            <img src="img/paoFrances.jpg" width=80% alt="Foto de Pão Francês">
+            <figcaption>Pão Francês</figcaption>
+            <button onclick="pao()">COMPRE AQUI</button>
+        </figure>
+        <figure style="background-color: goldenrod;">
+            <img src="img/cavaca.jpg" width=80% alt="Foto de Cavaca">
+            <figcaption>Cavaca</figcaption>
+            <button onclick="cavaca()">COMPRE AQUI</button>
+        </figure>
+        <figure style="background-color: goldenrod;">
+            <img src="img/boloCHocolate.jpg" width=80% alt="Foto de Bolo de Chocolate">
+            <figcaption>Bolo de Chocolate</figcaption>
+            <button onclick="boloChoc()">COMPRE AQUI SUA FATIA</button>
+        </figure>
+        <figure style="background-color: goldenrod;">
+            <img src="img/boloMilho.png" width=80% alt="Foto de Bolo de Milho">
+            <figcaption>Bolo de Milho</figcaption>
+            <button onclick="boloMilho()">COMPRE AQUI SUA FATIA</button>
+        </figure>
+    </div>
+</body>
+<script>
+    function broa(){
+        var quant = Number(prompt('Quantas broas você quer?'))
+        var metodo = Number(prompt('Como você prefere efetuar o pagamento? Digite 1 se preferir pagar com dinheiro e 2 se preferir utilizar um cartão:'))
+        switch (metodo) {
+        case 1:
+            //Pagamento em dinheiro
+            if (confirm("Você vai precisar de troco?") == true){
+                var valor = Number(prompt('Para quanto precisa de troco?'))
+                var troco = valor - quant * 0.5
+                if (troco < 0){
+                    alert('Valor menor do que o necessário!')
+                    break
+                } 
+                alert('Perfeito! O entregador irá levar o seu troco de R$' +troco +'!')
+                alert('Volte sempre!')
+                break
+            } else {
+            alert('Ótimo! O entregador irá levar seu pedido em breve!')
+            alert('Volte sempre!')
+            break
+            }
+        case 2:
+            var escolha = Number(prompt('Como você prefere usar o seu cartão? Digite 1 para pagamento online e 2 se prefere que o entregador leve a maquininha.'))
+            if (escolha == 1) {
+            //pagamento com cartão online
+            var nome = prompt('Qual o titular do cartão?')
+            var ncartao = prompt('Qual o número do cartão?')
+            if (ncartao.length != 16) {
+                alert('Cartão Inválido!')
+            } else {
+                var validade = prompt('Qual a validade deste cartão? (apenas números)')
+                if (validade.length != 4) {
+                alert('Data Inválida!')
+                } else {
+                var codseg = prompt('Qual o código de segurança deste cartão?')
+                if (codseg.length != 3) {
+                    alert('Código Inválido!')
+                } else {
+                    alert('Cartão confirmado! Aguarde e o entregador já estará chegando com o seu pedido!')
+                    alert('Volte sempre!')
+                    break
+                }
+                }
+            }
+            } else if (escolha == 2) {
+            //pagamento (com cartão) presencial
+            var tipo = prompt('Que cartão você vai usar? Digite 1 para débito e 2 para crédito:')
+            if (tipo == '1'){
+                alert('O entregador irá levar a maquininha de débito até você! Aguarde e logo seu pedido estará aí na sua casa!')
+                break
+                } else if (tipo == '2'){
+                    alert('O entregador irá levar a maquininha de crédito até você! Aguarde e logo seu pedido estará aí na sua casa!')
+                    break
+            } else {
+                alert("Dígito Inválido!")
+                break
+            }
+            }
+        default:
+            alert('Comando Inválido!');
+            break;
+        }
+    }
+    function pao(){
+        var quant = Number(prompt('Quantos pães você quer?'))
+        var metodo = Number(prompt('Como você prefere efetuar o pagamento? Digite 1 se preferir pagar com dinheiro e 2 se preferir utilizar um cartão:'))
+        switch (metodo) {
+        case 1:
+            //Pagamento em dinheiro
+            if (confirm("Você vai precisar de troco?") == true){
+                var valor = Number(prompt('Para quanto precisa de troco?'))
+                var troco = valor - quant * 0.5
+                if (troco < 0){
+                    alert('Valor menor do que o necessário!')
+                    break
+                } 
+                alert('Perfeito! O entregador irá levar o seu troco de R$' +troco +'!')
+                alert('Volte sempre!')
+                break
+            } else {
+            alert('Ótimo! O entregador irá levar seu pedido em breve!')
+            alert('Volte sempre!')
+            break
+            }
+        case 2:
+            var escolha = Number(prompt('Como você prefere usar o seu cartão? Digite 1 para pagamento online e 2 se prefere que o entregador leve a maquininha.'))
+            if (escolha == 1) {
+            //pagamento com cartão online
+            var nome = prompt('Qual o titular do cartão?')
+            var ncartao = prompt('Qual o número do cartão?')
+            if (ncartao.length != 16) {
+                alert('Cartão Inválido!')
+            } else {
+                var validade = prompt('Qual a validade deste cartão? (apenas números)')
+                if (validade.length != 4) {
+                alert('Data Inválida!')
+                } else {
+                var codseg = prompt('Qual o código de segurança deste cartão?')
+                if (codseg.length != 3) {
+                    alert('Código Inválido!')
+                } else {
+                    alert('Cartão confirmado! Aguarde e o entregador já estará chegando com o seu pedido!')
+                    alert('Volte sempre!')
+                    break
+                }
+                }
+            }
+            } else if (escolha == 2) {
+            //pagamento (com cartão) presencial
+            var tipo = prompt('Que cartão você vai usar? Digite 1 para débito e 2 para crédito:')
+            if (tipo == '1'){
+                alert('O entregador irá levar a maquininha de débito até você! Aguarde e logo seu pedido estará aí na sua casa!')
+                break
+                } else if (tipo == '2'){
+                    alert('O entregador irá levar a maquininha de crédito até você! Aguarde e logo seu pedido estará aí na sua casa!')
+                    break
+            } else {
+                alert("Dígito Inválido!")
+                break
+            }
+            }
+        default:
+            alert('Comando Inválido!');
+            break;
+        }
+    }
+    function boloChoc(){
+        var quant = Number(prompt('Quantas fatias de bolo você quer?'))
+        var metodo = Number(prompt('Como você prefere efetuar o pagamento? Digite 1 se preferir pagar com dinheiro e 2 se preferir utilizar um cartão:'))
+        switch (metodo) {
+        case 1:
+            //Pagamento em dinheiro
+            if (confirm("Você vai precisar de troco?") == true){
+                var valor = Number(prompt('Para quanto precisa de troco?'))
+                var troco = valor - quant * 4.5
+                if (troco < 0){
+                    alert('Valor menor do que o necessário!')
+                    break
+                } 
+                alert('Perfeito! O entregador irá levar o seu troco de R$' +troco +'!')
+                alert('Volte sempre!')
+                break
+            } else {
+            alert('Ótimo! O entregador irá levar seu pedido em breve!')
+            alert('Volte sempre!')
+            break
+            }
+        case 2:
+            var escolha = Number(prompt('Como você prefere usar o seu cartão? Digite 1 para pagamento online e 2 se prefere que o entregador leve a maquininha.'))
+            if (escolha == 1) {
+            //pagamento com cartão online
+            var nome = prompt('Qual o titular do cartão?')
+            var ncartao = prompt('Qual o número do cartão?')
+            if (ncartao.length != 16) {
+                alert('Cartão Inválido!')
+            } else {
+                var validade = prompt('Qual a validade deste cartão? (apenas números)')
+                if (validade.length != 4) {
+                alert('Data Inválida!')
+                } else {
+                var codseg = prompt('Qual o código de segurança deste cartão?')
+                if (codseg.length != 3) {
+                    alert('Código Inválido!')
+                } else {
+                    alert('Cartão confirmado! Aguarde e o entregador já estará chegando com o seu pedido!')
+                    alert('Volte sempre!')
+                    break
+                }
+                }
+            }
+            } else if (escolha == 2) {
+            //pagamento (com cartão) presencial
+            var tipo = prompt('Que cartão você vai usar? Digite 1 para débito e 2 para crédito:')
+            if (tipo == '1'){
+                alert('O entregador irá levar a maquininha de débito até você! Aguarde e logo seu pedido estará aí na sua casa!')
+                break
+                } else if (tipo == '2'){
+                    alert('O entregador irá levar a maquininha de crédito até você! Aguarde e logo seu pedido estará aí na sua casa!')
+                    break
+            } else {
+                alert("Dígito Inválido!")
+                break
+            }
+            }
+        default:
+            alert('Comando Inválido!');
+            break;
+        }
+    }
+    function boloMilho(){
+        var quant = Number(prompt('Quantas fatias de bolo você quer?'))
+        var metodo = Number(prompt('Como você prefere efetuar o pagamento? Digite 1 se preferir pagar com dinheiro e 2 se preferir utilizar um cartão:'))
+        switch (metodo) {
+        case 1:
+            //Pagamento em dinheiro
+            if (confirm("Você vai precisar de troco?") == true){
+                var valor = Number(prompt('Para quanto precisa de troco?'))
+                var troco = valor - quant * 3.5
+                if (troco < 0){
+                    alert('Valor menor do que o necessário!')
+                    break
+                } 
+                alert('Perfeito! O entregador irá levar o seu troco de R$' +troco +'!')
+                alert('Volte sempre!')
+                break
+            } else {
+            alert('Ótimo! O entregador irá levar seu pedido em breve!')
+            alert('Volte sempre!')
+            break
+            }
+        case 2:
+            var escolha = Number(prompt('Como você prefere usar o seu cartão? Digite 1 para pagamento online e 2 se prefere que o entregador leve a maquininha.'))
+            if (escolha == 1) {
+            //pagamento com cartão online
+            var nome = prompt('Qual o titular do cartão?')
+            var ncartao = prompt('Qual o número do cartão?')
+            if (ncartao.length != 16) {
+                alert('Cartão Inválido!')
+            } else {
+                var validade = prompt('Qual a validade deste cartão? (apenas números)')
+                if (validade.length != 4) {
+                alert('Data Inválida!')
+                } else {
+                var codseg = prompt('Qual o código de segurança deste cartão?')
+                if (codseg.length != 3) {
+                    alert('Código Inválido!')
+                } else {
+                    alert('Cartão confirmado! Aguarde e o entregador já estará chegando com o seu pedido!')
+                    alert('Volte sempre!')
+                    break
+                }
+                }
+            }
+            } else if (escolha == 2) {
+            //pagamento (com cartão) presencial
+            var tipo = prompt('Que cartão você vai usar? Digite 1 para débito e 2 para crédito:')
+            if (tipo == '1'){
+                alert('O entregador irá levar a maquininha de débito até você! Aguarde e logo seu pedido estará aí na sua casa!')
+                break
+                } else if (tipo == '2'){
+                    alert('O entregador irá levar a maquininha de crédito até você! Aguarde e logo seu pedido estará aí na sua casa!')
+                    break
+            } else {
+                alert("Dígito Inválido!")
+                break
+            }
+            }
+        default:
+            alert('Comando Inválido!');
+            break;
+        }
+    }
+    function cavaca(){
+        var quant = Number(prompt('Quantas cavacas você quer?'))
+        var metodo = Number(prompt('Como você prefere efetuar o pagamento? Digite 1 se preferir pagar com dinheiro e 2 se preferir utilizar um cartão:'))
+        switch (metodo) {
+        case 1:
+            //Pagamento em dinheiro
+            if (confirm("Você vai precisar de troco?") == true){
+                var valor = Number(prompt('Para quanto precisa de troco?'))
+                var troco = valor - quant * 2.5
+                if (troco < 0){
+                    alert('Valor menor do que o necessário!')
+                    break
+                } 
+                alert('Perfeito! O entregador irá levar o seu troco de R$' +troco +'!')
+                alert('Volte sempre!')
+                break
+            } else {
+            alert('Ótimo! O entregador irá levar seu pedido em breve!')
+            alert('Volte sempre!')
+            break
+            }
+        case 2:
+            var escolha = Number(prompt('Como você prefere usar o seu cartão? Digite 1 para pagamento online e 2 se prefere que o entregador leve a maquininha.'))
+            if (escolha == 1) {
+            //pagamento com cartão online
+            var nome = prompt('Qual o titular do cartão?')
+            var ncartao = prompt('Qual o número do cartão?')
+            if (ncartao.length != 16) {
+                alert('Cartão Inválido!')
+            } else {
+                var validade = prompt('Qual a validade deste cartão? (apenas números)')
+                if (validade.length != 4) {
+                alert('Data Inválida!')
+                } else {
+                var codseg = prompt('Qual o código de segurança deste cartão?')
+                if (codseg.length != 3) {
+                    alert('Código Inválido!')
+                } else {
+                    alert('Cartão confirmado! Aguarde e o entregador já estará chegando com o seu pedido!')
+                    alert('Volte sempre!')
+                    break
+                }
+                }
+            }
+            } else if (escolha == 2) {
+            //pagamento (com cartão) presencial
+            var tipo = prompt('Que cartão você vai usar? Digite 1 para débito e 2 para crédito:')
+            if (tipo == '1'){
+                alert('O entregador irá levar a maquininha de débito até você! Aguarde e logo seu pedido estará aí na sua casa!')
+                break
+                } else if (tipo == '2'){
+                    alert('O entregador irá levar a maquininha de crédito até você! Aguarde e logo seu pedido estará aí na sua casa!')
+                    break
+            } else {
+                alert("Dígito Inválido!")
+                break
+            }
+            }
+        default:
+            alert('Comando Inválido!');
+            break;
+        }
+    }
+    </script>
+</html>

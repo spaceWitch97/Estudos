@@ -1,0 +1,26 @@
+<!--
+    Faça um código onde sejam lidos um nome e um sobrenome através do prompt e após a leitura dos mesmos, ele deverá exibir uma mensagem informando qual é o nome da pessoa, qual o tipo da variável lida e quantos caracteres ele tem, valendo a mesma coisa para o sobrenome. Depois disso você deverá exibir uma mensagem dizendo quantos caracteres têm, somados, nome e sobrenome.
+
+    Ex.: nome: Nicolas, sobrenome: Cavalcante
+    Seu nome é Nicolas, isso está sendo lido como uma string e tem 7 caracteres.
+    Seu sobrenome é Cavalcante, isso está sendo lido como uma string e tem 10 caracteres.
+    Seu nome e sobrenome somados têm 17 caracteres. Isso está sendo lido como number.
+-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarefa 07</title>
+</head>
+<body>
+    <script>
+        var nome = prompt("Qual é o seu nome?")
+        var sobrenome = prompt("Qual é o seu sobrenome?")
+        tamanho = nome.length + sobrenome.length
+        document.write("Nome: "+nome+"<br>Sobrenome: "+sobrenome)
+        document.write("<br><br>Seu nome ("+nome+") está gravado como "+typeof(nome)+" e tem "+nome.length+" caracteres.")
+        document.write("<br>Seu sobrenome ("+sobrenome+") está gravado como "+typeof(sobrenome)+" e tem "+nome.length+" caracteres.")
+        document.write("<br>Seu nome e sobrenome somados tem "+tamanho+" caracteres e isso está sendo lido como "+typeof(tamanho)+".")
+    </script>
+</body>
+</html>

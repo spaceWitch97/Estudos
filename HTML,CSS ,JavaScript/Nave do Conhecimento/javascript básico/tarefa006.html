@@ -1,0 +1,28 @@
+<!--
+    A tarefa é a seguinte: vocês devem fazer um prompt que irá pedir os seguintes dados:
+        Nome, Sobrenome, Idade, Dia do nascimento, Mês do nascimento, Ano do nascimento.
+    Com isso, vocês deverão utilizar a função document.write() (e a tag <br> para pular linha) para exibir da seguinte forma:
+    Nome com sobrenome
+    Idade
+    Dia/mês/ano do nascimento
+    <hr
+
+-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarefa 6</title>
+</head>
+<body>
+    <script>
+        var nome = prompt("Digite o seu primeiro nome")
+        var sobrenome = prompt("Digite seu sobrenome")
+        var idade = prompt("Quantos anos você tem?")
+        var dia = prompt("Em que dia você nasceu?")
+        var mes = prompt("Em que mês você nasceu?")
+        var ano = prompt("Em que ano você nasceu?")
+        document.write('Nome: ' + nome + ' ' +sobrenome + ' <br>Idade: '+idade+'<br>Data de nascimento: '+dia+'/'+mes+'/'+ano)
+    </script>
+</body>
+</html>
