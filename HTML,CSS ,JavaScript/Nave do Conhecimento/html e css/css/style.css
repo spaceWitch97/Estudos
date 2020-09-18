@@ -1,0 +1,36 @@
+body{
+    background-color: lightgrey;
+}
+
+img{
+    display: inline-block;
+}
+
+header{
+    background-color: white;
+}
+
+.logo {
+}
+
+.prefeitura{
+}
+
+.banner{
+}
+
+nav{
+    background-color: gray;
+    color: white;
+    text-decoration: none;
+}
+
+nav li {
+    list-style: none;                
+    display: inline-block;
+}
+
+footer{
+    background-color: white;
+    clear: both;
+}
