@@ -1,7 +1,9 @@
-//se os campos de email e nome estiverem preenchidos, envie os dados. Senão, pedir para o usuário preencher os campos. 
+document.getElementById("botao").addEventListener("click", validacao)
 
-if (){
-
-} else{
-    
+function validacao(){
+    if (document.getElementById("nome").value != ""  && document.getElementById("email").value != "" && document.getElementById("telefone")){
+        alert("Prontinho! Você receberá as novidades por email!")
+    } else{
+        alert("Por favor, tenha certeza de que preencheu todos os campos!")
+    }
 }

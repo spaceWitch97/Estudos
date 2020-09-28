@@ -5,7 +5,7 @@ body{
     color: white;
 }
 
-nav{
+nav li{
     background-color: #FF6CB5;
     height: 40px;
     max-width: 60%;
@@ -81,4 +81,5 @@ button{
     border: solid 1px transparent;
     padding: 2px 20px;
     border-radius: 3px;
+    margin-top: 1rem;
 }
