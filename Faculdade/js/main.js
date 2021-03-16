@@ -1,4 +1,5 @@
 function escreverNome(){
-    nome.innerHTML='Jenifer Angelo'
+    nome.innerHTML='BRUXA ESPACIAL BITCH'
 }
-window.onload=escreverNome;
+window.onload = escreverNome;
+
