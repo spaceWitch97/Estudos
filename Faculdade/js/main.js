@@ -1,5 +1,5 @@
+var nome = alert("Qual o seu nome?");
 function escreverNome(){
-    nome.innerHTML='BRUXA ESPACIAL BITCH'
+    nome.innerHTML="Seja bem-vinde, " + nome + "!!";
 }
-window.onload = escreverNome;
-
+window.onload=escreverNome;
