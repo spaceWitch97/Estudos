@@ -24,6 +24,19 @@ a {
     /*text-align: center;*/
 }
 
-form{
+form {
     color: rgb(1, 230, 255);
+    /* Apenas para centralizar o form na página */
+    margin: 0 auto;
+    width: 400px;
+    /* Para ver as bordas do formulário */
+    padding: 1em;
+    border: 1px solid rgb(1, 230, 255);;
+    border-radius: 1em;
+}
+
+label{
+    display: inline-block;
+    width: 90px;
+    text-align: right;
 }
