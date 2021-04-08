@@ -1,12 +1,14 @@
 *{
     box-sizing: border-box;
+    display: inline;
+    font-family: 'Cultive Mono', monospace;
 }
 
 body{
     width: 100%;
-    background-color: black;
+    background: rgb(0,0,0);
+    /*background: linear-gradient(90deg, rgba(0,0,0,1) 20%, rgba(172,2,2,1) 65%, rgba(92,0,134,1) 79%);*/
     color: blanchedalmond;
-    font-family: 'Cormorant Unicase', serif; font-size: 28;
 }
 
 nav{
@@ -16,12 +18,33 @@ nav{
 }
 
 a {
+    font-family: 'Amatic SC', cursive;
+    font-size: larger;
     text-decoration: none;
     color:cyan;
 }
 
+ul{
+    display:flex;
+}
+
+li{
+    text-align: center;
+    border: 1px solid antiquewhite;
+    padding: 3px;
+    margin: 2px;
+}
+
 #link_home{
     /*text-align: center;*/
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Permanent Marker', cursive;
+}
+
+figure{
+    margin: 0 auto;
 }
 
 form {
